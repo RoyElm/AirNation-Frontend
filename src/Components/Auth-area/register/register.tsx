@@ -94,7 +94,6 @@ export default function Register(props: dialogProps) {
                                                 ? "First Name max length is 30" :
                                                 errors.firstName?.type === "pattern" ?
                                                     "Pattern not right too many spaces" : ""}
-                                    autoFocus
                                 />
                             </Grid>
                             <Grid item xs={12} sm={6}>
@@ -103,7 +102,6 @@ export default function Register(props: dialogProps) {
                                     variant="outlined"
                                     fullWidth
                                     required
-                                    id="lastName"
                                     {...register('lastName', { required: true, minLength: 2, maxLength: 30, pattern: /^([a-zA-Z\u0590-\u05fe]{2,}\s?)+$$/ })}
                                     error={errors.lastName && true}
                                     label="Last Name"

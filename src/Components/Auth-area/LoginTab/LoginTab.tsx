@@ -33,7 +33,7 @@ function LoginTab(props: loginProps): JSX.Element {
     };
 
     return (
-        <>
+        <div>
             <MenuItem onClick={handleLoginOpen}>
                 <LockOpen />
                 Login
@@ -45,7 +45,7 @@ function LoginTab(props: loginProps): JSX.Element {
             </MenuItem>
             <Register open={registerOpen} onClose={handleRegisterClose} loginSuccess={(message: string, severity: string) => handleAlertOpen(message, severity)} />
             <Login open={loginOpen} onClose={handleLoginClose} loginSuccess={(message: string, severity: string) => handleAlertOpen(message, severity)} />
-        </>
+        </div>
     );
 }
 
