@@ -1,0 +1,4 @@
+.LogoutTab{
+    display: flex;
+    flex-direction: column;
+}

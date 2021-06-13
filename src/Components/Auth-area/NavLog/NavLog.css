@@ -1,0 +1,18 @@
+.button > .MuiButton-root {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button{
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 10rem;
+    min-width: 5rem;
+}
+
+.popperList {
+    padding-top: 1rem;
+    padding-right: 1rem;
+}

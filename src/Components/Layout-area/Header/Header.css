@@ -1,0 +1,43 @@
+.Header{
+    position: relative;
+}
+
+.nav-tabs{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.parallax  {
+    /* The image used */
+    background-image: url("../../../assets/images/background-header.jpg");
+    
+    /* Set a specific height */
+    min-height: 600px;  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tabs .MuiTabs-flexContainer {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.nav-tabs > img {
+    object-fit: contain;
+    height: 10vh;
+}
+
+.nav-tabs .userDiv {
+    position: relative;
+    display: flex;
+}
