@@ -2,6 +2,8 @@ import React from "react";
 import "./Footer.css";
 import AirNation from '../../../assets/images/AirNation.png';
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
+import { GlobalPaths } from "../../../Services/GlobalPaths";
+import { NavLink } from "react-router-dom";
 
 function Footer(): JSX.Element {
 
@@ -22,13 +24,13 @@ function Footer(): JSX.Element {
                     <h4>PAGES</h4>
                     <ul>
                         <li>
-                            <a href="!#">Home</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Home</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Best Sellers</a>
+                            <NavLink to={GlobalPaths.flightsUrl}>Flights</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Articles</a>
+                            <NavLink to={GlobalPaths.articlesUrl}>Articles</NavLink>
                         </li>
                     </ul>
                 </div>

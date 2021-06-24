@@ -27,7 +27,7 @@ function NavLog(): JSX.Element {
     const [auth, setAuth] = useState<AuthModel>(store.getState().authState.auth);
 
     const handleToggle = () => {
-        setOpen(!open);
+        setOpen(open => !open);
     };
 
     const handleAlertOpen = (message: string, severity: string) => {
@@ -53,13 +53,15 @@ function NavLog(): JSX.Element {
     };
 
     return (
-        <div className="NavLog">
+        <div className="NavLog" onMouseLeave={handleClose}>
             <div className="button">
                 <Button
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
+                    onMouseEnter={handleToggle}
                     onClick={handleToggle}
+                    
                 >
                     <MenuIcon />
                     <Avatar><AccountCircle /></Avatar>

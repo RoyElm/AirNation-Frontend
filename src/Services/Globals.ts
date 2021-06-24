@@ -1,17 +1,14 @@
 export class Globals {
-    public static vacationUrl: string;
-    public static authUrl: string;
-    public static socketUrl:string;
+    public static flightsApiUrl: string;
+    public static authApiUrl: string;
 
     public static url() {
         if (process.env.NODE_ENV === "production") {
-            Globals.vacationUrl = "";
-            Globals.authUrl = "";
-            Globals.socketUrl = "";
+            Globals.flightsApiUrl = "";
+            Globals.authApiUrl = "";
         } else {
-            Globals.vacationUrl = "http://localhost:3001/api/vacations/";
-            Globals.authUrl = "http://localhost:3001/api/auth/";
-            Globals.socketUrl = "http://localhost:3001/";
+            Globals.flightsApiUrl = "http://localhost:3001/api/flight/";
+            Globals.authApiUrl = "http://localhost:3001/api/auth/";
         }
     }
 }

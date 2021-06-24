@@ -7,13 +7,13 @@ import { Globals } from './Globals';
 //Global functions helper each component can reusable that functions.
 
 export async function handleRegisterUserAsync(auth: AuthModel) {
-    const response = await axios.post<AuthModel>(Globals.authUrl + "register", auth);
+    const response = await axios.post<AuthModel>(Globals.authApiUrl + "register", auth);
     const userRegistered = response.data;
     return savingUserInStoreAndHeader(userRegistered);
 }
 
 export async function handleLoginUserAsync(auth: AuthModel) {
-    const response = await axios.post<AuthModel>(Globals.authUrl + "login", auth);
+    const response = await axios.post<AuthModel>(Globals.authApiUrl + "login", auth);
     const userLoggedIn = response.data;
     return savingUserInStoreAndHeader(userLoggedIn);
 }

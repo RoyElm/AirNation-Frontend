@@ -2,33 +2,28 @@ import React, { useState } from "react";
 import { Tab, Tabs } from "@material-ui/core";
 import AirNation from '../../../assets/images/AirNation.png';
 import "./Header.css";
-
 import NavLog from "../../Auth-area/NavLog/NavLog";
+import { GlobalPaths } from "../../../Services/GlobalPaths";
+import { useHistory, useLocation } from "react-router-dom";
 
 function Header(): JSX.Element {
-    const [value, setValue] = useState('1');
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const { pathname } = useLocation();
+    const [value, setValue] = useState<string>(pathname);
+    const history = useHistory();
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
         setValue(newValue);
-    };
-
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
+        history.push(newValue);
     };
 
     return (
         <div className="Header">
             <div className="nav-tabs">
                 <img src={AirNation} alt="AirNation" />
-                <Tabs className="tabs" onChange={handleChange}>
-                    <Tab label="Home" value="1" />
-                    <Tab label="Best Sellers" value="2" />
-                    <Tab label="Articles" value="3" />
+                <Tabs className="tabs" value={value} onChange={handleChange}>
+                    <Tab label="Home" value={GlobalPaths.homeUrl} />
+                    <Tab label="Flights" value={GlobalPaths.flightsUrl} />
+                    <Tab label="Articles" value={GlobalPaths.articlesUrl} />
                 </Tabs>
                 <div className="userDiv">
                     <NavLog />
