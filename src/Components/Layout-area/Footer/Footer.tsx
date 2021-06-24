@@ -5,7 +5,6 @@ import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 
 function Footer(): JSX.Element {
 
-
     return (
         <div className="Footer">
             <div className="site-data">

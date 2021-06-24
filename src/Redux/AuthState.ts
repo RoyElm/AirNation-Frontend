@@ -1,5 +1,5 @@
 import { AuthModel } from "../Components/Models/AuthModel";
-import { authorizationHeader } from "../Services/GlobalHelpers";
+import { authorizationHeader } from "../Services/Auth.service";
 
 // Auth State: 
 export class AuthState {

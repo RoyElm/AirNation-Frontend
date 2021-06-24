@@ -46,7 +46,7 @@ function NavLog(): JSX.Element {
             setAuth(auth);
         });
         return unSubscribe;
-    })
+    },[])
 
     const handleClose = () => {
         setOpen(false);
@@ -69,7 +69,7 @@ function NavLog(): JSX.Element {
                 <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                         <MenuList autoFocusItem={open} id="menu-list-grow">
-                            {auth && auth.token ? <LogoutTab auth={auth} logoutWarning={(message: string, severity: string) => handleAlertOpen(message, severity)} /> : <LoginTab loginSuccess={(message: string, severity: string) => handleAlertOpen(message, severity)} />}
+                            {auth && auth.token ? <LogoutTab auth={auth} logoutWarning={handleAlertOpen} /> : <LoginTab loginSuccess={handleAlertOpen} />}
                         </MenuList>
                     </ClickAwayListener>
                 </Paper>

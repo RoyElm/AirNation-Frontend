@@ -54,7 +54,7 @@ export default function Register(props: dialogProps) {
     }
 
     //Handling register form submit;
-    async function send(auth: AuthModel) {
+    async function handleRegisterFormSubmit(auth: AuthModel) {
         try {
             const registeredUser = await handleRegisterUserAsync(auth);
             loginSuccess(`Welcome ${registeredUser.firstName} ${registeredUser.lastName}`, "success");
@@ -76,7 +76,7 @@ export default function Register(props: dialogProps) {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <form action="POST" onSubmit={handleSubmit(send)} className={classes.form} noValidate autoComplete="off">
+                    <form action="POST" onSubmit={handleSubmit(handleRegisterFormSubmit)} className={classes.form} noValidate autoComplete="off">
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField

@@ -9,19 +9,20 @@ import { Globals } from './Globals';
 export async function handleRegisterUserAsync(auth: AuthModel) {
     const response = await axios.post<AuthModel>(Globals.authUrl + "register", auth);
     const userRegistered = response.data;
-    store.dispatch(authRegisteredAction(userRegistered));
-    authorizationHeader(userRegistered);
-    return store.getState().authState.auth;
+    return savingUserInStoreAndHeader(userRegistered);
 }
 
 export async function handleLoginUserAsync(auth: AuthModel) {
     const response = await axios.post<AuthModel>(Globals.authUrl + "login", auth);
     const userLoggedIn = response.data;
-    store.dispatch(authRegisteredAction(userLoggedIn));
-    authorizationHeader(userLoggedIn);
-    return store.getState().authState.auth;
+    return savingUserInStoreAndHeader(userLoggedIn);
 }
 
+function savingUserInStoreAndHeader(user: AuthModel) {
+    store.dispatch(authRegisteredAction(user));
+    authorizationHeader(user);
+    return store.getState().authState.auth;
+}
 
 //Handling header authorization adding user token.
 export function authorizationHeader(userLogged: AuthModel) {

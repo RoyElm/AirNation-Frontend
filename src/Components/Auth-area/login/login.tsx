@@ -27,10 +27,9 @@ function Alert(props: AlertProps) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export default function Login(props: dialogProps) {
+export default function Login({ onClose, open, loginSuccess }: dialogProps) {
     const classes = authFormStyle();
     const { register, handleSubmit, formState: { errors }, reset } = useForm<AuthModel>(undefined);
-    const { onClose, open, loginSuccess } = props;
 
     const [alertOpen, setAlertOpen] = useState(false);
 
@@ -54,7 +53,7 @@ export default function Login(props: dialogProps) {
     }
 
     //Handling login form submit;
-    async function send(auth: AuthModel) {
+    async function handleLoginFormSubmit(auth: AuthModel) {
         try {
             const registeredUser = await handleLoginUserAsync(auth);
             loginSuccess(`Welcome ${registeredUser.firstName} ${registeredUser.lastName}`, "success");
@@ -76,7 +75,7 @@ export default function Login(props: dialogProps) {
                     <Typography component="h1" variant="h5">
                         Login
                     </Typography>
-                    <form action="POST" onSubmit={handleSubmit(send)} className={classes.form} noValidate autoComplete="off">
+                    <form action="POST" onSubmit={handleSubmit(handleLoginFormSubmit)} className={classes.form} noValidate autoComplete="off">
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <TextField

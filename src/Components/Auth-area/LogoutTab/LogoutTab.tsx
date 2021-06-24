@@ -1,5 +1,5 @@
-import { MenuItem } from "@material-ui/core";
 import React from "react";
+import { MenuItem } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { logoutUser } from "../../../Services/GlobalHelpers";
 import { GlobalPaths } from "../../../Services/GlobalPaths";
