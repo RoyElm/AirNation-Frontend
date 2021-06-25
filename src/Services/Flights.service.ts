@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Order } from '../Components/Models/FlightModel';
+import { FlightModel, Order } from '../Components/Models/FlightModel';
 import { FlightDownloadedAction } from '../Redux/FlightsState';
 import store from "../Redux/Store";
 import { Globals } from './Globals';
@@ -7,7 +7,7 @@ import { Globals } from './Globals';
 
 export async function getAllFlightsAsync() {
     if (!store.getState().flightsState.flights.length) {
-        const response = await axios.get(Globals.flightsApiUrl);
+        const response = await axios.get<FlightModel[]>(Globals.flightsApiUrl);
         const flights = response.data;
         store.dispatch(FlightDownloadedAction(flights));
     }

@@ -7,7 +7,6 @@ export class FlightModel {
     public date: string;
     public price: number;
     public imageName: string;
-    public featured: boolean;
 }
 
 export type Order = "asc" | "desc";
