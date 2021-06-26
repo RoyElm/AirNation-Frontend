@@ -14,7 +14,7 @@ export function logoutUser() {
     return;
 }
 
-export function getImageSource(_id: string): string {
+export function getImageSourceBy_id(_id: string): string {
     const article = getArticleBy_Id(_id);
     if(article){
         const imageSource = `${Globals.articleApiUrl}articleImages/${article.imageName}`;

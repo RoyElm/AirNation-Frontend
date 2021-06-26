@@ -7,7 +7,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
 import { useEffect } from "react";
 import defaultParallaxImage from '../../../assets/images/background-header.jpg';
-import { getImageSource } from "../../../Services/GlobalServices/GlobalHelpers";
+import { getImageSourceBy_id } from "../../../Services/GlobalServices/GlobalHelpers";
 
 function Header(): JSX.Element {
     const { pathname } = useLocation();
@@ -38,7 +38,7 @@ function Header(): JSX.Element {
         if (READ_ARTICLE_PATH()) {
             setValue(pathname);
             const _id = pathname.split("/")[2];
-            const _parallaxBackgroundImage = getImageSource(_id);
+            const _parallaxBackgroundImage = getImageSourceBy_id(_id);
             SET_PARALLAX_BACKGROUND_IMAGE(_parallaxBackgroundImage);
 
         } else {

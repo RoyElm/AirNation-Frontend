@@ -1,3 +1,15 @@
 .Home {
-	
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Home > h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Home > h1 > img{
+    width: 9rem;
 }

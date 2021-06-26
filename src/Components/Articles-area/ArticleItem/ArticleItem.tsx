@@ -1,11 +1,11 @@
-import { GridListTileBar, IconButton } from "@material-ui/core";
-import { Info } from "@material-ui/icons";
 import React from "react";
+import { GridListTileBar } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
 import { Globals } from "../../../Services/GlobalServices/Globals";
 import { articleListStyle } from "../../../Services/GlobalServices/GlobalStylingMaker";
 import { ArticleModel } from "../../Models/ArticleModel";
+
 
 interface ArticleItemInterface {
     article: ArticleModel,
@@ -13,7 +13,6 @@ interface ArticleItemInterface {
 }
 
 function ArticleItem({ article, classes }: ArticleItemInterface): JSX.Element {
-
     return (
         <>
             <img src={`${Globals.articleApiUrl}articleImages/${article.imageName}`} alt={article.title} />
@@ -22,11 +21,6 @@ function ArticleItem({ article, classes }: ArticleItemInterface): JSX.Element {
                 titlePosition="top"
                 actionPosition="left"
                 className={classes.titleBar}
-                actionIcon={
-                    <IconButton aria-label={`info about ${article.title}`} className={classes.icon}>
-                        <Info />
-                    </IconButton>
-                }
             />
             <NavLink to={GlobalPaths.readArticleUrl + article._id} className="read_more_button">
                 <span>Read More</span>
@@ -36,3 +30,4 @@ function ArticleItem({ article, classes }: ArticleItemInterface): JSX.Element {
 }
 
 export default ArticleItem;
+

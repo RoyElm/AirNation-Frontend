@@ -1,9 +1,7 @@
 import React from "react";
 import { MenuItem } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
 import { AuthModel } from "../../Models/AuthModel";
 import "./LogoutTab.css";
-import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
 import { logoutUser } from "../../../Services/Axios_Services/Auth.service";
 
 interface userProps {
@@ -22,7 +20,7 @@ function LogoutTab(props: userProps): JSX.Element {
     return (
         <MenuItem className="LogoutTab">
             <span> Welcome {props.auth && props.auth.firstName}</span>
-            <NavLink to={GlobalPaths.homeUrl} onClick={handlingLogout} >Logout</NavLink>
+            <span className="logoutLink" onClick={handlingLogout}>Logout</span>
         </MenuItem>
     );
 }

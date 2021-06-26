@@ -71,3 +71,52 @@ export const articleListStyle = makeStyles((theme: Theme) =>
         },
     }),
 );
+
+export const popOverStyle = makeStyles((theme: Theme) =>
+    createStyles({
+        typography: {
+            padding: theme.spacing(2),
+        },
+    }),
+);
+
+export const bestSellerStyle = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+            overflow: 'hidden',
+            backgroundColor: theme.palette.background.paper,
+            width: '80%'
+        },
+        gridList: {
+            flexWrap: 'nowrap',
+        },
+
+        imageFlight: {
+            width: '3rem'
+        }
+    }),
+);
+
+export const articleRawHomeStyle = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-around',
+            flexDirection: "column",
+            overflow: 'hidden',
+            alignItems: "center",
+            backgroundColor: theme.palette.background.paper,
+        },
+        gridList: {
+            width: '70%',
+            height: 450,
+        },
+        icon: {
+            color: 'rgba(255, 255, 255, 0.54)',
+        }
+    }),
+);

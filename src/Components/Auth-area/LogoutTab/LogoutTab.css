@@ -2,3 +2,6 @@
     display: flex;
     flex-direction: column;
 }
+.LogoutTab .logoutLink {
+    color:blue;
+}
