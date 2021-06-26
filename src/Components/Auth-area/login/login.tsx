@@ -8,11 +8,12 @@ import { Transition } from '../../Shared-area/Transition/Transition';
 import SnackBarAlert from '../../Shared-area/SnackBarAlert/SnackBarAlert';
 import { handleLoginUserAsync } from '../../../Services/Axios_Services/Auth.service';
 import { errorsService } from '../../../Services/GlobalServices/GlobalErrorsService';
+import { Severity } from '../../Models/GlobalTypes';
 
 export interface dialogProps {
     open: boolean;
     onClose: () => void;
-    loginSuccess: (message: string, severity: string) => void;
+    loginSuccess: (message: string, severity: Severity) => void;
 }
 
 
@@ -36,7 +37,7 @@ export default function Login({ onClose, open, loginSuccess }: dialogProps) {
         setAlertOpen(false)
     }
 
-    const handleAlertOpen = (message: string, severity: string) => {
+    const handleAlertOpen = (message: string, severity: Severity) => {
         setAlertOpen(true)
         setMessageAlert({ message, severity })
     }

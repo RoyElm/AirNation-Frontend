@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CircularProgress } from "@material-ui/core";
-import { FlightModel, Order } from "../../Models/FlightModel";
+import { FlightModel } from "../../Models/FlightModel";
 import { Table, TableBody, TableContainer, Paper } from "@material-ui/core";
 import { flightTableStyle } from "../../../Services/GlobalServices/GlobalStylingMaker";
 import FlightHeaderList from "../FlightHeaderList/FlightHeaderList";
@@ -8,6 +8,7 @@ import FlightRaw from "../FlightRaw/FlightRaw";
 import { getAllFlightsAsync, getComparator, stableSort } from "../../../Services/Axios_Services/Flights.service";
 import { errorsService } from "../../../Services/GlobalServices/GlobalErrorsService";
 import { CIRCULAR_PROGRESS_STYLE } from "../../Shared-area/Global_CSS/Global_CSS";
+import { Order } from "../../Models/GlobalTypes";
 
 
 function FlightsList(): JSX.Element {

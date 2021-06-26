@@ -10,6 +10,7 @@ import { AccountCircle } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import SnackBarAlert from "../../Shared-area/SnackBarAlert/SnackBarAlert";
+import { Severity } from "../../Models/GlobalTypes";
 
 function NavLog(): JSX.Element {
 
@@ -30,7 +31,7 @@ function NavLog(): JSX.Element {
         setOpen(open => !open);
     };
 
-    const handleAlertOpen = (message: string, severity: string) => {
+    const handleAlertOpen = (message: string, severity: Severity) => {
         setAlertOpen(true);
         setMessageAlert({ message, severity })
     }

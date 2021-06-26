@@ -3,10 +3,11 @@ import { MenuItem } from "@material-ui/core";
 import { AuthModel } from "../../Models/AuthModel";
 import "./LogoutTab.css";
 import { logoutUser } from "../../../Services/Axios_Services/Auth.service";
+import { Severity } from "../../Models/GlobalTypes";
 
 interface userProps {
     auth: AuthModel;
-    logoutWarning: (message: string, severity: string) => void;
+    logoutWarning: (message: string, severity: Severity) => void;
 }
 
 function LogoutTab(props: userProps): JSX.Element {

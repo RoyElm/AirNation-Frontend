@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { FlightModel, Order } from '../../Components/Models/FlightModel';
+import { FlightModel } from '../../Components/Models/FlightModel';
+import { Order } from '../../Components/Models/GlobalTypes';
 import { FlightDownloadedAction } from '../../Redux/FlightsState';
 import store from '../../Redux/Store';
 import { Globals } from '../GlobalServices/Globals';
 
 
-export async function getAllFlightsAsync() {
+export async function getAllFlightsAsync(): Promise<FlightModel[]> {
     if (!store.getState().flightsState.flights.length) {
         const response = await axios.get<FlightModel[]>(Globals.flightsApiUrl);
         const flights = response.data;

@@ -1,7 +1,8 @@
 import { TableCell, TableHead, TableRow, TableSortLabel } from "@material-ui/core";
 import React from "react";
 import { flightTableStyle } from "../../../Services/GlobalServices/GlobalStylingMaker";
-import { FlightModel, Order } from "../../Models/FlightModel";
+import { FlightModel } from "../../Models/FlightModel";
+import { Order } from "../../Models/GlobalTypes";
 
 interface HeadCell {
     id: keyof FlightModel;
@@ -58,6 +59,13 @@ function FlightHeaderList({ classes, order, orderBy, onRequestSort }: EnhancedTa
                         </TableSortLabel>
                     </TableCell>
                 ))}
+                <TableCell
+                    key='TicketAmount'
+                    align="center"
+                    padding="default"
+                >
+                    Ticket Amount
+                </TableCell>
             </TableRow>
         </TableHead>
     );

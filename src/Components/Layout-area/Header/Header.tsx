@@ -33,6 +33,7 @@ function Header(): JSX.Element {
         setParallaxBackgroundImage({ backgroundImage: `url(${image})` })
     }, [])
 
+
     //handling switch parallax background image when user read article;
     useEffect(() => {
         if (READ_ARTICLE_PATH()) {
@@ -56,6 +57,7 @@ function Header(): JSX.Element {
                     <Tab label="Flights" value={GlobalPaths.flightsUrl} />
                     <Tab label="Articles" value={GlobalPaths.articlesUrl} />
                     {READ_ARTICLE_PATH() && <Tab label="Read Article" value={pathname} />}
+                    <Tab label="Ordered Flights" value={GlobalPaths.orderedFlightsUrl} />
                 </Tabs>
                 <div className="userDiv">
                     <NavLog />

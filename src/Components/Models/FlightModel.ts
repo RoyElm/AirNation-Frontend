@@ -8,4 +8,3 @@ export class FlightModel {
     public imageName: string;
 }
 
-export type Order = "asc" | "desc";

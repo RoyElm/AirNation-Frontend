@@ -1,12 +1,13 @@
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import React from "react";
+import { Severity } from "../../Models/GlobalTypes";
 
 interface SnackBarAlertInterface {
     alertOpen: boolean;
     messageAlert: {
         message: string,
-        severity: string
+        severity: Severity
     },
     handleAlertClose: () => void;
 }

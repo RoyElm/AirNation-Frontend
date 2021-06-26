@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { LockOpen, Lock } from '@material-ui/icons';
 import Register from "../register/register";
 import Login from "../login/login";
+import { Severity } from "../../Models/GlobalTypes";
 
 export interface loginProps {
-    loginSuccess: (message: string, severity: string) => void;
+    loginSuccess: (message: string, severity: Severity) => void;
 }
 
 function LoginTab(props: loginProps): JSX.Element {
@@ -20,7 +21,7 @@ function LoginTab(props: loginProps): JSX.Element {
         setRegisterOpen(false);
     };
 
-    const handleAlertOpen = (message: string, severity: string) => {
+    const handleAlertOpen = (message: string, severity: Severity) => {
         props.loginSuccess(message, severity)
     }
 
@@ -43,8 +44,8 @@ function LoginTab(props: loginProps): JSX.Element {
                 <Lock />
                 Register
             </MenuItem>
-            <Register open={registerOpen} onClose={handleRegisterClose} loginSuccess={(message: string, severity: string) => handleAlertOpen(message, severity)} />
-            <Login open={loginOpen} onClose={handleLoginClose} loginSuccess={(message: string, severity: string) => handleAlertOpen(message, severity)} />
+            <Register open={registerOpen} onClose={handleRegisterClose} loginSuccess={(message: string, severity: Severity) => handleAlertOpen(message, severity)} />
+            <Login open={loginOpen} onClose={handleLoginClose} loginSuccess={(message: string, severity: Severity) => handleAlertOpen(message, severity)} />
         </div>
     );
 }
