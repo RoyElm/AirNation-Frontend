@@ -39,22 +39,22 @@ function Footer(): JSX.Element {
 
                     <ul>
                         <li>
-                            <a href="!#">Diversity & Belonging</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Diversity & Belonging</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Against Discrimination</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Against Discrimination</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Accessibility</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Accessibility</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Frontline Stays</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Frontline Stays</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Guest Referrals</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Guest Referrals</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Gift cards</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Gift cards</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -62,22 +62,22 @@ function Footer(): JSX.Element {
                     <h4>SUPPORT</h4>
                     <ul>
                         <li>
-                            <a href="!#">Our COVID-19 Response</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Our COVID-19 Response</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Help Center</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Help Center</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Cancellation options</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Cancellation options</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Cancellation options</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Cancellation options</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Neighborhood Support</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Neighborhood Support</NavLink>
                         </li>
                         <li>
-                            <a href="!#">Trust & Safety</a>
+                            <NavLink to={GlobalPaths.homeUrl}>Trust & Safety</NavLink>
                         </li>
                     </ul>
                 </div>
