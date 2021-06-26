@@ -2,6 +2,7 @@
     opacity: 0.7;
     width: 100%;
     height: inherit;
+    object-fit: cover;
 }
 
 .articleList .read_more_button {
@@ -26,6 +27,8 @@
    line-height: 42px;
    padding: 0;
    border: none;
+   text-decoration: none;
+   text-align: center;
  }
  .articleList .read_more_button span {
    position: relative;

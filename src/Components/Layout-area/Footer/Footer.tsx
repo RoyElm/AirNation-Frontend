@@ -14,7 +14,7 @@ function Footer(): JSX.Element {
                     <img src={AirNation} alt="AirNation" />
                     <p>
                         My name is Roy Elmakies Full Stack Developer,
-                        Welcome to my AirNation Landing Page.
+                        Welcome to my AirNation site.
                     </p>
                     <a href="https://www.linkedin.com/in/royelmakies/"><LinkedIn fontSize="large" /></a>
                     <a href="https://github.com/RoyElm"><GitHub fontSize="large" /></a>

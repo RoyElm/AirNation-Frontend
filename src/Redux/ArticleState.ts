@@ -3,6 +3,12 @@ import { ArticleModel } from "../Components/Models/ArticleModel";
 // Article State: 
 export class ArticleState {
     public articles: ArticleModel[] = [];
+    constructor() {
+        const articles: ArticleModel[] = JSON.parse(sessionStorage.getItem("articles"));
+        if (articles?.length) {
+            this.articles = articles;
+        }
+    }
 }
 
 // Article Action Types: 
@@ -63,6 +69,8 @@ export function ArticleReducer(
             break;
         }
     }
+
+    sessionStorage.setItem("articles", JSON.stringify(newState.articles));
 
     return newState; // Return the newState.
 }

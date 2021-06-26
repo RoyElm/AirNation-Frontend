@@ -1,3 +1,26 @@
 .FullArticle {
-	
+    white-space: break-spaces;
+}
+.FullArticle .articleDescription{
+	display: flex;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 2rem;
+    width: 80%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.FullArticle section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.FullArticle h3,.FullArticle span {
+    margin-bottom: 0;
+    font-family:  'Courier New', Courier, monospace;
+
+}
+.FullArticle h2 {
+    font-family: 'Dancing Script', monospace;
+    text-align: center;
 }

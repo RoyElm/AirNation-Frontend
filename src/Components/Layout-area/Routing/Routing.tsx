@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
 import ArticleList from "../../Articles-area/ArticleList/ArticleList";
 import FullArticle from "../../Articles-area/FullArticle/FullArticle";
 import FlightsList from "../../Flights-area/FlightsList/FlightsList";
@@ -10,10 +11,10 @@ function Routing(): JSX.Element {
     return (
         <div className="Routing">
             <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/flights" component={FlightsList} exact />
-                <Route path="/articles" component={ArticleList} exact />
-                <Route path="/article/:_id" component={FullArticle} exact />
+                <Route path={GlobalPaths.homeUrl} component={Home} exact />
+                <Route path={GlobalPaths.flightsUrl} component={FlightsList} exact />
+                <Route path={GlobalPaths.articlesUrl} component={ArticleList} exact />
+                <Route path={`${GlobalPaths.readArticleUrl}:_id`} component={FullArticle} exact />
                 <Route component={Home} exact />
             </Switch>
         </div>
