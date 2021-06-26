@@ -27,8 +27,8 @@ function BestSellers(): JSX.Element {
     return (
         <div className={classes.root}>
             <h3>Best Sellers</h3>
-            <GridList className={classes.gridList} cols={2.5}>
-                {flights.map((flight) => (
+            <GridList className={classes.gridList} cols={3}>
+                {flights.map((flight,index) => index < 3 && (
                     <GridListTile key={flight.imageName}>
                         <img src={Globals.flightsApiUrl + "flightImages/" + flight.imageName} alt={flight.imageName} />
                         <GridListTileBar
