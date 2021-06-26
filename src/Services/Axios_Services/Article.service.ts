@@ -1,8 +1,8 @@
 import axios from "axios";
-import { ArticleModel } from "../Components/Models/ArticleModel";
-import { ArticlesDownloadedAction } from "../Redux/ArticleState";
-import store from "../Redux/Store";
-import { Globals } from "./Globals";
+import { ArticleModel } from "../../Components/Models/ArticleModel";
+import { ArticlesDownloadedAction } from "../../Redux/ArticleState";
+import store from "../../Redux/Store";
+import { Globals } from './../GlobalServices/Globals';
 
 export async function getAllArticlesAsync() {
     if (!store.getState().articleState.articles.length) {

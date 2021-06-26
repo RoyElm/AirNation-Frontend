@@ -1,30 +1,18 @@
 import React, { useState } from 'react';
-import { Avatar, Button, TextField, Grid, Typography, Container, Dialog, Slide, Snackbar } from '@material-ui/core';
+import { Avatar, Button, TextField, Grid, Typography, Container, Dialog } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { TransitionProps } from '@material-ui/core/transitions/transition';
-import { authFormStyle } from '../../../Services/GlobalStylingMaker';
+import { authFormStyle } from '../../../Services/GlobalServices/GlobalStylingMaker';
 import { useForm } from 'react-hook-form';
 import { AuthModel } from '../../Models/AuthModel';
-import { errorsService } from '../../../Services/GlobalErrorsService';
-import { handleRegisterUserAsync } from '../../../Services/Auth.service';
-import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+import SnackBarAlert from '../../Shared-area/SnackBarAlert/SnackBarAlert';
+import { Transition } from '../../Shared-area/Transition/Transition';
+import { handleRegisterUserAsync } from '../../../Services/Axios_Services/Auth.service';
+import { errorsService } from '../../../Services/GlobalServices/GlobalErrorsService';
 
 export interface dialogProps {
     open: boolean;
     onClose: () => void;
     loginSuccess: (message: string, severity: string) => void;
-}
-
-
-const Transition = React.forwardRef(function Transition(
-    props: TransitionProps & { children?: React.ReactElement<any, any> },
-    ref: React.Ref<unknown>,
-) {
-    return <Slide direction="down" ref={ref} {...props} />;
-});
-
-function Alert(props: AlertProps) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 export default function Register(props: dialogProps) {
@@ -161,11 +149,7 @@ export default function Register(props: dialogProps) {
                         </Button>
                     </form>
                 </div>
-                <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={alertOpen} autoHideDuration={2200} onClose={handleAlertClose}>
-                    <Alert variant="filled" onClose={handleAlertClose} severity="error">
-                        {messageAlert.message}
-                    </Alert>
-                </Snackbar>
+                <SnackBarAlert alertOpen={alertOpen} handleAlertClose={handleAlertClose} messageAlert={messageAlert}/>
             </Container>
         </Dialog>
     );

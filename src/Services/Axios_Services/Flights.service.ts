@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { FlightModel, Order } from '../Components/Models/FlightModel';
-import { FlightDownloadedAction } from '../Redux/FlightsState';
-import store from "../Redux/Store";
-import { Globals } from './Globals';
+import { FlightModel, Order } from '../../Components/Models/FlightModel';
+import { FlightDownloadedAction } from '../../Redux/FlightsState';
+import store from '../../Redux/Store';
+import { Globals } from '../GlobalServices/Globals';
 
 
 export async function getAllFlightsAsync() {

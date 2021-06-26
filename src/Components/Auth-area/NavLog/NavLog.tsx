@@ -5,11 +5,11 @@ import { Unsubscribe } from "redux";
 import store from "../../../Redux/Store";
 import LogoutTab from "../LogoutTab/LogoutTab";
 import LoginTab from "../LoginTab/LoginTab";
-import { Avatar, Button, Paper, Popper, MenuList, Snackbar } from "@material-ui/core";
+import { Avatar, Button, Paper, Popper, MenuList } from "@material-ui/core";
 import { AccountCircle } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import { Alert } from "@material-ui/lab";
+import SnackBarAlert from "../../Shared-area/SnackBarAlert/SnackBarAlert";
 
 function NavLog(): JSX.Element {
 
@@ -46,22 +46,21 @@ function NavLog(): JSX.Element {
             setAuth(auth);
         });
         return unSubscribe;
-    },[])
+    }, [])
 
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
-        <div className="NavLog" onMouseLeave={handleClose}>
+        <div className="NavLog">
             <div className="button">
                 <Button
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
-                    onMouseEnter={handleToggle}
                     onClick={handleToggle}
-                    
+
                 >
                     <MenuIcon />
                     <Avatar><AccountCircle /></Avatar>
@@ -76,17 +75,7 @@ function NavLog(): JSX.Element {
                     </ClickAwayListener>
                 </Paper>
             </Popper>
-            <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={alertOpen} autoHideDuration={2200} onClose={handleAlertClose}>
-                {messageAlert.severity === "success" ?
-                    <Alert variant="filled" onClose={handleAlertClose} severity="success">
-                        {messageAlert.message}
-                    </Alert>
-                    :
-                    <Alert variant="filled" onClose={handleAlertClose} severity="warning">
-                        {messageAlert.message}
-                    </Alert>
-                }
-            </Snackbar>
+            <SnackBarAlert alertOpen={alertOpen} messageAlert={messageAlert} handleAlertClose={handleAlertClose} />
         </div>
     );
 }

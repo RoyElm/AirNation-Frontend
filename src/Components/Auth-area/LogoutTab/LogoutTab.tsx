@@ -1,10 +1,10 @@
 import React from "react";
 import { MenuItem } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import { logoutUser } from "../../../Services/GlobalHelpers";
-import { GlobalPaths } from "../../../Services/GlobalPaths";
 import { AuthModel } from "../../Models/AuthModel";
 import "./LogoutTab.css";
+import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
+import { logoutUser } from "../../../Services/Axios_Services/Auth.service";
 
 interface userProps {
     auth: AuthModel;

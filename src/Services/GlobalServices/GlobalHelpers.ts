@@ -1,6 +1,6 @@
 import axios from 'axios';
-import store from "../Redux/Store";
-import { authLoggedOutAction } from "../Redux/AuthState";
+import { authLoggedOutAction } from '../../Redux/AuthState';
+import store from '../../Redux/Store';
 
 //Global functions helper each component can reusable that functions.
 

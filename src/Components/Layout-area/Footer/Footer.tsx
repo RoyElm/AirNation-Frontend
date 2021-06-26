@@ -2,8 +2,8 @@ import React from "react";
 import "./Footer.css";
 import AirNation from '../../../assets/images/AirNation.png';
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
-import { GlobalPaths } from "../../../Services/GlobalPaths";
 import { NavLink } from "react-router-dom";
+import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
 
 function Footer(): JSX.Element {
 

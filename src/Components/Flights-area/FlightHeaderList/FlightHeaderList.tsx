@@ -1,14 +1,12 @@
 import { TableCell, TableHead, TableRow, TableSortLabel } from "@material-ui/core";
 import React from "react";
-import { flightTableStyle } from "../../../Services/GlobalStylingMaker";
-import { FlightModel } from "../../Models/FlightModel";
+import { flightTableStyle } from "../../../Services/GlobalServices/GlobalStylingMaker";
+import { FlightModel, Order } from "../../Models/FlightModel";
 
 interface HeadCell {
     id: keyof FlightModel;
     label: string;
 }
-
-type Order = "asc" | "desc";
 
 const HEADER_CELLS: HeadCell[] = [
     { id: "fromLocation", label: "From Location" },

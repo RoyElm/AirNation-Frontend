@@ -1,8 +1,8 @@
 import axios from 'axios';
-import store from "../Redux/Store";
-import { authLoggedOutAction, authRegisteredAction } from "../Redux/AuthState";
-import { AuthModel } from "../Components/Models/AuthModel";
-import { Globals } from './Globals';
+import { AuthModel } from '../../Components/Models/AuthModel';
+import { authLoggedOutAction, authRegisteredAction } from '../../Redux/AuthState';
+import store from '../../Redux/Store';
+import { Globals } from '../GlobalServices/Globals';
 
 //Global functions helper each component can reusable that functions.
 

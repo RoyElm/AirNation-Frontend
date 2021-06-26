@@ -1,5 +1,5 @@
 import { AuthModel } from "../Components/Models/AuthModel";
-import { authorizationHeader } from "../Services/Auth.service";
+import { authorizationHeader } from "../Services/Axios_Services/Auth.service";
 
 // Auth State: 
 export class AuthState {
