@@ -4,6 +4,8 @@ import { AuthModel } from "../../Models/AuthModel";
 import "./LogoutTab.css";
 import { logoutUser } from "../../../Services/Axios_Services/Auth.service";
 import { Severity } from "../../Models/GlobalTypes";
+import { NavLink } from "react-router-dom";
+import { GlobalPaths } from "../../../Services/GlobalServices/GlobalPaths";
 
 interface userProps {
     auth: AuthModel;
@@ -21,7 +23,7 @@ function LogoutTab(props: userProps): JSX.Element {
     return (
         <MenuItem className="LogoutTab">
             <span> Welcome {props.auth && props.auth.firstName}</span>
-            <span className="logoutLink" onClick={handlingLogout}>Logout</span>
+            <NavLink className="logoutLink" to={GlobalPaths.homeUrl} onClick={handlingLogout}>Logout</NavLink>
         </MenuItem>
     );
 }

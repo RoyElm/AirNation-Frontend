@@ -32,8 +32,8 @@ function NavLog(): JSX.Element {
     };
 
     const handleAlertOpen = (message: string, severity: Severity) => {
-        setAlertOpen(true);
         setMessageAlert({ message, severity })
+        setAlertOpen(true);
     }
 
     const handleAlertClose = () => {
@@ -71,7 +71,7 @@ function NavLog(): JSX.Element {
                 <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                         <MenuList autoFocusItem={open} id="menu-list-grow">
-                            {auth && auth.token ? <LogoutTab auth={auth} logoutWarning={handleAlertOpen} /> : <LoginTab loginSuccess={handleAlertOpen} />}
+                            {auth?.token ? <LogoutTab auth={auth} logoutWarning={handleAlertOpen} /> : <LoginTab loginSuccess={handleAlertOpen} />}
                         </MenuList>
                     </ClickAwayListener>
                 </Paper>

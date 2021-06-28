@@ -1,0 +1,16 @@
+.AddFlight > h2 {
+    text-align: center;
+}
+
+.AddFlight > form{
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddFlight > form > * {
+    width: 20rem;
+    margin: 0.7rem;
+}

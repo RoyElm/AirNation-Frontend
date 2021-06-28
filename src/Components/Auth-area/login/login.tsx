@@ -38,8 +38,8 @@ export default function Login({ onClose, open, loginSuccess }: dialogProps) {
     }
 
     const handleAlertOpen = (message: string, severity: Severity) => {
-        setAlertOpen(true)
         setMessageAlert({ message, severity })
+        setAlertOpen(true)
     }
 
     //Handling login form submit;

@@ -1,0 +1,16 @@
+.AddArticle > h2 {
+    text-align: center;
+}
+
+.AddArticle > form{
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AddArticle > form > * {
+    width: 20rem;
+    margin: 0.7rem;
+}

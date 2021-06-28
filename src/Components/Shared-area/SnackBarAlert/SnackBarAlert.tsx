@@ -15,15 +15,9 @@ interface SnackBarAlertInterface {
 function SnackBarAlert({ alertOpen, messageAlert, handleAlertClose }: SnackBarAlertInterface): JSX.Element {
     return (
         <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={alertOpen} autoHideDuration={2200} onClose={handleAlertClose}>
-            {messageAlert.severity === "success" ?
-                <Alert variant="filled" onClose={handleAlertClose} severity="success">
-                    {messageAlert.message}
-                </Alert>
-                :
-                <Alert variant="filled" onClose={handleAlertClose} severity="warning">
-                    {messageAlert.message}
-                </Alert>
-            }
+            <Alert variant="filled" onClose={handleAlertClose} severity={messageAlert.severity}>
+                {messageAlert.message}
+            </Alert>
         </Snackbar>
     );
 }

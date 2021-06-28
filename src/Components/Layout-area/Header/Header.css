@@ -1,12 +1,30 @@
 .Header{
     position: relative;
+    width: 100%;
 }
 
-.nav-tabs{
-
+.Header > .AppBar {
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background: #ffffff;
+}
+.Header .MuiToolbar-root{
+    flex-wrap: wrap;
+}
+.Header .navLink {
+    margin: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+.activeNavLink {
+    border-bottom: 1px solid blue;
+}
+
+.Header .grow {
+    flex: 1;
 }
 
 .parallax  {
@@ -18,21 +36,7 @@
 
 }
 
-.tabs .MuiTabs-flexContainer {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: baseline;
-}
-
-.nav-tabs > img {
+.Header img {
     object-fit: contain;
     height: 10vh;
-}
-
-.nav-tabs .userDiv {
-    position: relative;
-    display: flex;
 }

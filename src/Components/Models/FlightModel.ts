@@ -8,3 +8,6 @@ export class FlightModel {
     public imageName: string;
 }
 
+export class AddFlightModel extends FlightModel {
+    public newImage: File;
+}

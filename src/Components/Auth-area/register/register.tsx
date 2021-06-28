@@ -38,8 +38,8 @@ export default function Register(props: dialogProps) {
     }
 
     const handleAlertOpen = (message: string, severity: Severity) => {
-        setAlertOpen(true)
         setMessageAlert({ message, severity })
+        setAlertOpen(true)
     }
 
     //Handling register form submit;

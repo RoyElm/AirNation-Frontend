@@ -4,4 +4,5 @@ export class GlobalPaths {
     public static articlesUrl: string = "/articles";
     public static readArticleUrl: string = "/read_article/";
     public static orderedFlightsUrl: string = "/ordered_flights/";
+    public static adminAreaUrl: string = "/admin/";
 }

@@ -19,7 +19,6 @@ function ArticleItem({ article, classes }: ArticleItemInterface): JSX.Element {
             <GridListTileBar
                 title={article.title}
                 titlePosition="top"
-                actionPosition="left"
                 className={classes.titleBar}
             />
             <NavLink to={GlobalPaths.readArticleUrl + article._id} className="read_more_button">

@@ -36,7 +36,9 @@ function ArticleList(): JSX.Element {
                     <ListSubheader component="h3">Articles</ListSubheader>
                 </GridListTile>
                 {articles.length ? articles.map((article) => (
-                    <GridListTile key={article.imageName} cols={article.featured ? 2 : 1} rows={article.featured ? 2 : 1}>
+                    <GridListTile
+                        key={article.imageName}
+                        cols={article.featured ? 2 : 1} rows={article.featured ? 2 : 1}>
                         <ArticleItem article={article} classes={classes} />
                     </GridListTile >
                 ))
