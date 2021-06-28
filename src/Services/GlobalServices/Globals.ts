@@ -7,11 +7,11 @@ export class Globals {
 
     public static url() {
         if (process.env.NODE_ENV === "production") {
-            Globals.flightsApiUrl = "https://flamboyant-shaw-52c336.netlify.app/api/flight/";
-            Globals.authApiUrl = "https://flamboyant-shaw-52c336.netlify.app/api/auth/";
-            Globals.articleApiUrl = "https://flamboyant-shaw-52c336.netlify.app/api/article/";
-            Globals.orderFlightApiUrl = "https://flamboyant-shaw-52c336.netlify.app/api/order-flight/";
-            Globals.adminApiUrl = "https://flamboyant-shaw-52c336.netlify.app/api/admin/";
+            Globals.flightsApiUrl = "https://airnation-backend.netlify.app/.netlify/functions/app/api/flight/";
+            Globals.authApiUrl = "https://airnation-backend.netlify.app/.netlify/functions/app/api/auth/";
+            Globals.articleApiUrl = "https://airnation-backend.netlify.app/.netlify/functions/app/api/article/";
+            Globals.orderFlightApiUrl = "https://airnation-backend.netlify.app/.netlify/functions/app/api/order-flight/";
+            Globals.adminApiUrl = "https://airnation-backend.netlify.app/.netlify/functions/app/api/admin/";
         } else {
             Globals.flightsApiUrl = "http://localhost:3001/api/flight/";
             Globals.authApiUrl = "http://localhost:3001/api/auth/";
