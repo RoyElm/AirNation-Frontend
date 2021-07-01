@@ -1,8 +1,9 @@
 import { TableCell } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import { useCallback } from "react";
 import { Unsubscribe } from "redux";
 import store from "../../../Redux/Store";
-import { orderAFlightAsync } from "../../../Services/Axios_Services/Order_Flight.service";
+import { deleteOrderFlightAsync, orderAFlightAsync } from "../../../Services/Axios_Services/Order_Flight.service";
 import { AuthModel } from "../../Models/AuthModel";
 import { FlightModel } from "../../Models/FlightModel";
 import { Severity } from "../../Models/GlobalTypes";
@@ -22,15 +23,25 @@ function BookAFlight({ flight, handleAlertOpen }: BookAFlightInterface): JSX.Ele
 
     const [ticketAmount, setTicketAmount] = useState<number>(1);
 
-    const [OrderFlights, setOrderFlights] = useState<OrderFlightModel[]>();
+    const [OrderFlights, setOrderFlights] = useState<OrderFlightModel[]>(store.getState().OrderFlightsState.OrderFlights);
+    const [bookedFlight, setBookedFlight] = useState<OrderFlightModel>();
+
+    const isFlightBeenOrdered = useCallback((OrderFlights: OrderFlightModel[]): void => {
+        const includes = OrderFlights.filter(orderFlight => orderFlight.flight._id === flight._id);
+        setBookedFlight(includes[0]);
+    },[flight._id])
 
     useEffect(() => {
+        isFlightBeenOrdered(OrderFlights)
         const unSubscribe: Unsubscribe = store.subscribe(() => {
             const _OrderFlights = store.getState().OrderFlightsState.OrderFlights;
+            isFlightBeenOrdered(_OrderFlights)
             setOrderFlights(_OrderFlights);
         });
         return unSubscribe;
-    }, [])
+    }, [OrderFlights,isFlightBeenOrdered]);
+
+
 
     const HandleSubmitBookFlight = async () => {
         try {
@@ -53,9 +64,18 @@ function BookAFlight({ flight, handleAlertOpen }: BookAFlightInterface): JSX.Ele
         return newOrderFlight;
     }
 
+    const cancelOrder = async () => {
+        try {
+            await deleteOrderFlightAsync(bookedFlight._id);
+            handleAlertOpen(`${bookedFlight.flight.toLocation} has been canceled`, "warning");
+        } catch (error) {
+            handleAlertOpen(error.message, "error");
+        }
+    }
+
     return (
-        <TableCell align="center">
-            {OrderFlights?.length ?
+        <TableCell align="center" className="BookAFlight">
+            {!bookedFlight?._id ?
                 <>
                     <select defaultValue={ticketAmount} className="selectAmount" onChange={handleChange}>
                         <option value={1}>1</option>
@@ -64,10 +84,10 @@ function BookAFlight({ flight, handleAlertOpen }: BookAFlightInterface): JSX.Ele
                         <option value={4}>4</option>
                         <option value={5}>5</option>
                     </select>
-                    <button onClick={HandleSubmitBookFlight}>Book Flight</button>
+                    <button className="orderAFlight" onClick={HandleSubmitBookFlight}>Book Flight</button>
                 </>
                 :
-                <span>Already Booked</span>
+                <button className="cancelFlight" onClick={cancelOrder}>Cancel Order</button>
             }
         </TableCell>
     );

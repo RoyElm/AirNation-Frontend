@@ -10,6 +10,7 @@ export enum OrderFlightsActionType {
     OrderFlightsDownloaded = "OrderFlightsDownloaded",
     OrderFlightAdded = "OrderFlightAdded",
     OrderFlightEdited = "OrderFlightEdited",
+    OrderFlightDeleted = "OrderFlightDeleted",
 }
 
 // Order Flights Action: 
@@ -31,6 +32,9 @@ export function OrderFlightEditedAction(orderFlight: OrderFlightModel): OrderFli
     return { type: OrderFlightsActionType.OrderFlightEdited, payload: orderFlight };
 }
 
+export function deletedOrderFlightAction(_id: string): OrderFlightsAction {
+    return { type: OrderFlightsActionType.OrderFlightDeleted, payload: _id };
+}
 
 // Order Flights Reducer: 
 export function OrderFlightsReducer(
@@ -49,8 +53,13 @@ export function OrderFlightsReducer(
             break;
         }
         case OrderFlightsActionType.OrderFlightEdited: {
-            const articleIndex = newState.OrderFlights.findIndex(action.payload._id)
-            newState.OrderFlights[articleIndex] = action.payload;
+            const orderIndex = newState.OrderFlights.findIndex(orderFlight => orderFlight._id ===action.payload._id)
+            newState.OrderFlights[orderIndex] = action.payload;
+            break;
+        }
+        case OrderFlightsActionType.OrderFlightDeleted:{
+            const orderIndex = newState.OrderFlights.findIndex(orderFlight => orderFlight._id === action.payload);
+            newState.OrderFlights.splice(orderIndex, 1);
             break;
         }
 

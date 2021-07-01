@@ -3,30 +3,16 @@ import React from "react";
 import { FlightModel } from "../../Models/FlightModel";
 import './FlightRaw.css';
 import AirNationPng from '../../../assets/images/AirNationFlight.png';
-import { useState } from "react";
-import SnackBarAlert from "../../Shared-area/SnackBarAlert/SnackBarAlert";
 import { Severity } from "../../Models/GlobalTypes";
 import BookAFlight from "../BookAFlight/BookAFlight";
 
+interface FlightRawInterface {
+    flight: FlightModel;
+    handleAlertOpen: (message: string, severity: Severity) => void
+}
 
-function FlightRaw(flight: FlightModel): JSX.Element {
-
-    const [alertOpen, setAlertOpen] = useState(false);
-
-    const [messageAlert, setMessageAlert] = useState({
-        message: "",
-        severity: null
-    });
-
-    const handleAlertClose = () => {
-        setAlertOpen(false)
-    }
-
-    const handleAlertOpen = (message: string, severity: Severity) => {
-        setMessageAlert({ message, severity })
-        setAlertOpen(true)
-    }
-
+function FlightRaw({ flight, handleAlertOpen }: FlightRawInterface): JSX.Element {
+    
     return (
         <>
             <TableRow className="FlightRaw">
@@ -42,7 +28,6 @@ function FlightRaw(flight: FlightModel): JSX.Element {
                 <TableCell >{new Date(flight.date).toLocaleDateString('he', { dateStyle: 'short' })}</TableCell>
                 <BookAFlight flight={flight} handleAlertOpen={handleAlertOpen} />
             </TableRow>
-            <SnackBarAlert alertOpen={alertOpen} handleAlertClose={handleAlertClose} messageAlert={messageAlert} />
         </>
     );
 }
