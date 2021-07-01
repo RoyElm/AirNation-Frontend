@@ -8,7 +8,10 @@ import FlightRaw from "../FlightRaw/FlightRaw";
 import { getAllFlightsAsync, getComparator, stableSort } from "../../../Services/Axios_Services/Flights.service";
 import { errorsService } from "../../../Services/GlobalServices/GlobalErrorsService";
 import { CIRCULAR_PROGRESS_STYLE } from "../../Shared-area/Global_CSS/Global_CSS";
-import { Order } from "../../Models/GlobalTypes";
+import { Order, Severity } from "../../Models/GlobalTypes";
+import store from "../../../Redux/Store";
+import { getAllOrderedFlightsByUserId } from "../../../Services/Axios_Services/Order_Flight.service";
+import SnackBarAlert from "../../Shared-area/SnackBarAlert/SnackBarAlert";
 
 
 function FlightsList(): JSX.Element {
@@ -18,13 +21,25 @@ function FlightsList(): JSX.Element {
     useEffect(() => {
         ((async () => {
             try {
-                const flights = await getAllFlightsAsync();
-                setFlights(flights);
+                await setOrderedFlightsAtRedux();
+                await setFlightsAsync()
             } catch (error) {
                 console.log(errorsService.getError(error));
             }
         }))();
     }, [])
+
+    async function setOrderedFlightsAtRedux(){
+        const auth = store.getState().authState.auth;
+        if (auth) {
+            await getAllOrderedFlightsByUserId(auth._id);
+        }
+    }
+
+    async function setFlightsAsync(){
+        const flights = await getAllFlightsAsync();
+        setFlights(flights);
+    }
 
     const classes = flightTableStyle();
     const [order, setOrder] = React.useState<Order>("asc");
@@ -39,6 +54,22 @@ function FlightsList(): JSX.Element {
         setOrderBy(property);
     };
 
+    const [alertOpen, setAlertOpen] = useState(false);
+
+    const [messageAlert, setMessageAlert] = useState({
+        message: "",
+        severity: null
+    });
+
+    const handleAlertClose = () => {
+        setAlertOpen(false)
+    }
+
+    const handleAlertOpen = (message: string, severity: Severity) => {
+        setMessageAlert({ message, severity })
+        setAlertOpen(true)
+    }
+
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
@@ -52,13 +83,14 @@ function FlightsList(): JSX.Element {
                                 onRequestSort={handleRequestSort}
                             />
                             <TableBody>
-                                {stableSort(flights, getComparator(order, orderBy)).map(flight => <FlightRaw key={flight._id} {...flight} />)}
+                                {stableSort(flights, getComparator(order, orderBy)).map(flight => <FlightRaw handleAlertOpen={handleAlertOpen} key={flight._id} flight={flight} />)}
                             </TableBody>
                         </Table>
                         :
                         <CircularProgress style={CIRCULAR_PROGRESS_STYLE}/>}
                 </TableContainer>
             </Paper>
+            <SnackBarAlert alertOpen={alertOpen} handleAlertClose={handleAlertClose} messageAlert={messageAlert} />
         </div>
     );
 }
